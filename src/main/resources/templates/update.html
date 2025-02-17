@@ -45,7 +45,7 @@
             
             <div class="mb-3">
                 <label for="type" class="form-label">Loại sản phẩm</label>
-                <select class="form-select" id="type" name="productType" required th:field="${product.productType}>
+                <select class="form-select" id="type" name="productType" required th:field="${product.productType}">
                     <option value="" selected>--Chọn loại--</option>
                     <option
                         th:each="pt : ${productTypeList}"
