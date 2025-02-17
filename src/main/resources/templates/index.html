@@ -70,13 +70,16 @@
                         <button class="btn btn-sm btn-info">
                             <a style="text-decoration: none; color: white" th:href="@{/product/update/{id}(id=${product.id})}">Sửa</a>
                         </button>
+                        <button class="btn btn-sm btn-danger">
+                            <a style="text-decoration: none; color: white" th:href="@{/product/delete/{id}(id=${product.id})}">Xóa</a>
+                        </button>
                     </td>
                 </tr>
             </tbody>
         </table>
         
         <div class="mt-3">
-            <button class="btn btn-danger" onclick="deleteProduct()">Xóa</button>
+            <button class="btn btn-danger">Xóa</button>
         </div> <br>
         
         <nav aria-label="Page navigation">
@@ -109,23 +112,6 @@
             for(let cb of productCheckboxes) {
                 cb.checked = selectAllCheckbox.checked;
             }
-        }
-        function deleteProduct() {
-            let idList = [];
-            let productCheckboxes = document.getElementsByClassName('product-checkbox');
-            for(let cb of productCheckboxes) {
-                if(cb.checked)
-                    idList.push(cb.value);
-            }
-            
-            $.ajax({
-                url: `http://localhost:8080/product`,
-                type: `DELETE`,
-                data: idList,
-                success: function () {
-                    location.reload();
-                }
-            })
         }
     </script>
 </body>

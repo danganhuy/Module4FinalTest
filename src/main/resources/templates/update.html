@@ -14,7 +14,7 @@
     <div class="container mt-5" style="max-width: 600px;">
         <h1 class="mb-4">Cập nhập sản phẩm</h1>
         
-        <form th:action="@{/product}" method="post">
+        <form th:action="@{/product/{id}(id=${product.id})}" method="POST">
             <div class="mb-3">
                 <label for="name" class="form-label">Tên sản phẩm</label>
                 <input
@@ -67,7 +67,7 @@
             
             <!-- Nút lưu -->
             <button type="submit" class="btn btn-primary">Lưu</button>
-            <a class="btn btn-secondary" th:href="@{/product/{id}(id=${product.id})}">Quay lại</a>
+            <a class="btn btn-secondary" th:href="@{/product}">Quay lại</a>
         </form>
     </div>
     

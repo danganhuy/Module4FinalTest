@@ -56,16 +56,14 @@ public class ProductController {
         return new ModelAndView("redirect:/product");
     }
 
-    @DeleteMapping
-    public ModelAndView delete(List<Long> idList) {
-        ModelAndView mv = new ModelAndView("index");
-        for (Long id : idList) {
-            productService.delete(productService.findById(id).get());
-        }
+    @GetMapping("/delete/{id}")
+    public ModelAndView delete(@PathVariable Long id) {
+        ModelAndView mv = new ModelAndView("redirect:/product");
+        productService.delete(productService.findById(id).get());
         return mv;
     }
 
-    @PutMapping("/{id}")
+    @PostMapping("/{id}")
     public ModelAndView update(@ModelAttribute Product product, @PathVariable Long id) {
         productService.save(product);
         return new ModelAndView("redirect:/product");
